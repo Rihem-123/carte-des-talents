@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion – SkillSphere</title>
+
+    <style>
+        /* ---------------------------------------------------- */
+        /* ----- 1. BACKGROUND GLOBAL (Gradient Animé) ----- */
+        /* ---------------------------------------------------- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff; 
+
+            /* Gradient animé pour l'innovation */
+            background: linear-gradient(-45deg, #0f1c2c, #0d283f, #1e4d5c, #0a1f33);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ---------------------------------------------------- */
+        /* ----- 2. CONTAINER LOGIN (Effet Blur & Glow) ----- */
+        /* ---------------------------------------------------- */
+        .login-box {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 35px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(29, 191, 222, 0.2);
+            text-align: center;
+            border: 1px solid rgba(29, 191, 222, 0.3);
+        }
+
+        /* ----- Logo (Cercle avec votre image de carte des talents) ----- */
+        .login-box .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            display: inline-block;
+            
+            /* INTÉGRATION DU LOGO CIRCULAIRE */
+            background: url('img/logo.png') no-repeat center center/contain;
+            
+            /* Lueur autour du logo */
+            box-shadow: 0 0 15px rgba(29, 191, 222, 0.6); 
+            
+        }
+        
+        .login-box h2 {
+            margin-bottom: 25px;
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+            /* Effet de lueur sur le titre */
+            text-shadow: 0 0 10px #1DBFDE; 
+            letter-spacing: 1px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* ----- 3. INPUTS (Modernes & Transparents) ----- */
+        /* ---------------------------------------------------- */
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            outline: none;
+            font-size: 14px;
+            
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: 0.3s border-color, 0.3s box-shadow;
+        }
+        
+        .login-box input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .login-box input:focus {
+            /* Lueur et bordure sur le focus */
+            border-color: #1DBFDE;
+            box-shadow: 0 0 8px rgba(29, 191, 222, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ---------------------------------------------------- */
+        /* ----- 4. BUTTON (Glow Effect) ----- */
+        /* ---------------------------------------------------- */
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: #1DBFDE;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+            
+            /* Effet Neon/Glow par défaut */
+            box-shadow: 0 0 10px rgba(29, 191, 222, 0.5); 
+            font-weight: bold;
+        }
+
+        .login-box button:hover {
+            background: #17a9c7;
+            /* Lueur plus forte au survol */
+            box-shadow: 0 0 20px rgba(29, 191, 222, 0.8), 0 0 40px rgba(29, 191, 222, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .login-box .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #cdefff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s color;
+        }
+        
+        .login-box .back-link:hover {
+            color: #1DBFDE;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        
+        <div class="logo"></div>
+        
+        <h2>Connexion à SkillSphere</h2>
+
+        <form>
+            <input type="email" placeholder="Adresse email" required>
+            <input type="password" placeholder="Mot de passe" required>
+
+            <button type="submit"> <a href="profile.html" class="btn-primary">Se connecter</a>  </button>
+             
+        </form>
+        
+     
+
+    </div>
+
+</body>
+</html>

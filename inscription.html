@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription – SkillSphere</title>
+
+    <style>
+        /* ---------------------------------------------------- */
+        /* ----- 1. BACKGROUND GLOBAL (Gradient Animé) ----- */
+        /* ---------------------------------------------------- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff; 
+            background: linear-gradient(-45deg, #0f1c2c, #0d283f, #1e4d5c, #0a1f33);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ---------------------------------------------------- */
+        /* ----- 2. CONTAINER INSCRIPTION ----- */
+        /* ---------------------------------------------------- */
+        .signup-box {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 35px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(29, 191, 222, 0.2);
+            text-align: center;
+            border: 1px solid rgba(29, 191, 222, 0.3);
+        }
+
+        /* Logo et Titre (Styles conservés) */
+        .signup-box .logo {
+            width: 100px; height: 100px; margin: 0 auto 25px auto; border-radius: 50%;
+            display: inline-block; background: url('img/logo.png') no-repeat center center/contain;
+            box-shadow: 0 0 15px rgba(29, 191, 222, 0.6); 
+        }
+        
+        .signup-box h2 {
+            margin-bottom: 25px; font-size: 26px; font-weight: 600; color: #fff;
+            text-shadow: 0 0 10px #1DBFDE; letter-spacing: 1px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* ----- 3. INPUTS GÉNÉRAUX ----- */
+        /* ---------------------------------------------------- */
+        .signup-box input,
+        .signup-box select { 
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0; 
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            outline: none;
+            font-size: 14px;
+            box-sizing: border-box;
+            
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: 0.3s border-color, 0.3s box-shadow;
+        }
+        
+        .signup-box input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .signup-box input:focus,
+        .signup-box select:focus {
+            border-color: #1DBFDE;
+            box-shadow: 0 0 8px rgba(29, 191, 222, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .signup-box select option {
+            background: #0f1c2c;
+            color: #fff;
+        }
+
+        /* ---------------------------------------------------- */
+        /* ----- 4. CHAMPS SPÉCIFIQUES AMÉLIORÉS ----- */
+        /* ---------------------------------------------------- */
+        
+        /* Conteneur du champ de téléphone avec préfixe (pour positionner l'icône) */
+        .input-with-prefix {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            /* Border et background sont ici */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Le conteneur du préfixe (Drapeau + Texte) */
+        .input-with-prefix .prefix-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            
+            /* Séparateur visuel */
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            
+            /* Style du texte/icône */
+            color: #1DBFDE;
+            font-weight: bold;
+            z-index: 10;
+            text-shadow: 0 0 5px rgba(29, 191, 222, 0.5); 
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.3); /* Légèrement plus sombre */
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+        
+        .input-with-prefix .flag-icon {
+            font-size: 18px; /* Pour que le drapeau soit bien visible */
+            margin-right: 5px;
+        }
+        
+        .input-with-prefix input[type="tel"] {
+            /* Calculez l'espace nécessaire (par exemple 90px) */
+            padding-left: 90px; 
+            margin: 0;
+            width: 100%;
+            
+            /* Important: supprime les bordures et le background des inputs généraux */
+            border: none;
+            background: transparent;
+        }
+        
+        .input-with-prefix:focus-within {
+            border-color: #1DBFDE;
+            box-shadow: 0 0 8px rgba(29, 191, 222, 0.5);
+        }
+        
+        .input-with-prefix input[type="tel"]:focus {
+             box-shadow: none;
+             background: transparent;
+        }
+        
+        /* --- Style pour l'Upload de Photo de Profil (Cercle Innovant) --- */
+        .profile-upload-zone {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 20px auto 30px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            
+            /* Style du cercle vide / Lueur */
+            border: 3px dashed #1DBFDE;
+            background: rgba(29, 191, 222, 0.1);
+            box-shadow: 0 0 15px rgba(29, 191, 222, 0.8);
+            transition: 0.3s;
+        }
+        
+        .profile-upload-zone label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+            color: #cdefff;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .profile-upload-zone:hover {
+            transform: scale(1.05);
+            background: rgba(29, 191, 222, 0.2);
+            box-shadow: 0 0 25px rgba(29, 191, 222, 1);
+        }
+        
+        .upload-icon {
+            font-size: 30px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        /* ---------------------------------------------------- */
+        /* ----- 5. BUTTON (Glow Effect) ----- */
+        /* ---------------------------------------------------- */
+        .signup-box button {
+            width: 100%;
+            padding: 12px;
+            background: #1DBFDE;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(29, 191, 222, 0.5); 
+            font-weight: bold;
+        }
+
+        .signup-box button:hover {
+            background: #17a9c7;
+            box-shadow: 0 0 20px rgba(29, 191, 222, 0.8), 0 0 40px rgba(29, 191, 222, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .signup-box .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #cdefff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s color;
+        }
+        
+        .signup-box .back-link:hover {
+            color: #1DBFDE;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-box">
+        
+        <div class="logo"></div>
+        
+        <h2>Créer un Compte </h2>
+
+        <form action="profile.html" method="POST" enctype="multipart/form-data">
+            
+            <input type="text" placeholder="Nom complet" required>
+            <input type="email" placeholder="Adresse email" required>
+            
+            <input type="text" placeholder="Nationalité (Ex: 🇹🇳 Tunisienne)" required>
+            <input type="text" placeholder="Adresse" required>
+            <div class="input-with-prefix">
+    <select class="country-code-select" required>
+    <option value="+216" selected> +216 (Tunisie)</option>
+    <option value="+213"> +213 (Algérie)</option>
+    <option value="+212"> +212 (Maroc)</option>
+    <option value="+20"> +20 (Égypte)</option>
+    <option value="+966"> +966 (Arabie Saoudite)</option>
+    <option value="+971">+971 (Émirats Arabes Unis)</option>
+    
+    <option value="+33"> +33 (France)</option>
+    <option value="+49"> +49 (Allemagne)</option>
+    <option value="+44"> +44 (Royaume-Uni)</option>
+    <option value="+34"> +34 (Espagne)</option>
+    <option value="+39"> +39 (Italie)</option>
+    <option value="+32"> +32 (Belgique)</option>
+    <option value="+31"> +31 (Pays-Bas)</option>
+    <option value="+41"> +41 (Suisse)</option>
+    
+    <option value="+1">+1 (États-Unis/Canada)</option>
+    <option value="+52"> +52 (Mexique)</option>
+    <option value="+55">+55 (Brésil)</option>
+    <option value="+54">+54 (Argentine)</option>
+    
+    <option value="+86">+86 (Chine)</option>
+    <option value="+91">🇮+91 (Inde)</option>
+    <option value="+81"> +81 (Japon)</option>
+    
+    <option value="+61"> +61 (Australie)</option>
+    
+    <option value="+7">+7 (Russie/Kazakhstan)</option>
+    <option value="+90"> +90 (Turquie)</option>
+
+    </select> <input type="tel" placeholder=" Téléphone" required> </div>
+                <input type="password" placeholder="Mot de passe" required>
+            <input type="password" placeholder="Confirmer le mot de passe" required>
+
+            <div class="profile-upload-zone">
+                <label for="profile-image">
+                    <span class="upload-icon">📸</span>
+                    <p>Cliquez ici pour télécharger votre photo</p>
+                </label>
+                <input type="file" id="profile-image" name="profile-image" accept="image/*" style="display: none;">
+            </div>
+        
+            <button type="submit">S'inscrire</button>
+        </form>
+
+    </div>
+
+      <div class="buttons-container">
+            <a href="profile.html" class="btn-primary">S'inscrire</a> 
+        </div>
+        
+    </div>
+
+</body>
+</html>
